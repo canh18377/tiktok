@@ -1,0 +1,39 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+     background-color: white;
+    
+}
+.containerVideo{
+    width: 768px;
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-left: 100px;
+    overflow-y: auto;
+    height: 581px;
+    
+}
+.video{
+    filter: brightness(0.5);
+    width: 300px;
+    min-height:560px;
+    border:1px solid rgb(132, 70, 70);
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin: 20px 50px 20px 10px;
+
+    
+}
+.containerVideo::-webkit-scrollbar{
+    height: 0;
+}
+.containerVideoIcon{
+    display: flex;
+
+}
+.icon{
+    margin-top: 100px;
+}
