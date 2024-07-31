@@ -6,13 +6,16 @@ import { useState,createContext } from "react";
 const ValueSearchContext=createContext()
 function DefaultLayout({children}) {
   const [contentSearch,setContentSearch]=useState('')
+  const [account,setaccount]=useState({name:'',password:''})
   const [history,setHistory]=useState([])
     return (  
       <ValueSearchContext.Provider value={{
         contentSearch,
         setContentSearch,
         history,
-        setHistory
+        setHistory,
+        setaccount,
+        account
 
     }}>
               <div className={clsx(Styles.DefaultLayout)}>
