@@ -20,7 +20,6 @@ function DefaultLayout({children}) {
          <div className={clsx(Styles.container)}>
              <SideBar/>
              <div className={clsx(Styles.content)}> 
-              
               {children} 
              </div>
          </div>

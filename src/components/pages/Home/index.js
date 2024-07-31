@@ -1,6 +1,6 @@
-import Styles from './home.module.scss'
+import Styles from '../video.module.scss'
 import clsx from 'clsx';
-import { useRef,useState ,useContext, useEffect} from 'react';
+import {useState ,useContext} from 'react';
 import VideoHome from '../video/VideoHome';
 import { ValueSearchContext } from '../../Layout/DefaultLayout';
 import { HeartOutlined } from '@ant-design/icons';
@@ -20,11 +20,11 @@ function Home() {
     })
   }
     return ( 
-    <div className={clsx(Styles.containerVideo)}>
+    <div className={clsx(Styles.changeContent)}>
       <VideoHome
-   history={history}
-   setVideos={setVideos}
-   contentSearch={contentSearch}/>
+        history={history}
+        setVideos={setVideos}
+        contentSearch={contentSearch}/>
       {
         
         videos.map((video)=>{
@@ -38,7 +38,7 @@ function Home() {
           autoPlay
           muted
           />
-              <div className={clsx(Styles.icon)}>
+              <div className={clsx(Styles.containerIcon)}>
                     <HeartOutlined 
                     className={clsx(Styles.iconHeart)}
                       style={{color:selected.includes(video.id)&&'red',fontSize:'30px'}}

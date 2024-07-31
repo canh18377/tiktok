@@ -1,4 +1,4 @@
-import Styles from './following.module.scss'
+import Styles from '../video.module.scss'
 import clsx from 'clsx';
 import {useState ,useContext} from 'react';
 import VideoFollowing from '../video/VideoFollowing';
@@ -20,7 +20,7 @@ function Following() {
     })
   }
     return ( 
-    <div className={clsx(Styles.containerVideo)}>
+    <div className={clsx(Styles.changeContent)}>
       <VideoFollowing
    history={history}
    setVideos={setVideos}
@@ -39,7 +39,7 @@ function Following() {
           autoPlay
           muted
           />
-              <div className={clsx(Styles.icon)}>
+              <div className={clsx(Styles.containerIcon)}>
                     <HeartOutlined 
                     className={clsx(Styles.iconHeart)}
                       style={{color:selected.includes(video.id)&&'red',fontSize:'30px'}}

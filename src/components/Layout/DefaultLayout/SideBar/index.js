@@ -1,7 +1,7 @@
 import Styles from './sideBar.module.scss'
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import SideBarChildren from './components/sideBar/SideBar'
+import SideBarChildren from './components/sideBar/SideBarChildren';
 function SideBar() {
     const navigate = useNavigate()
     return ( 

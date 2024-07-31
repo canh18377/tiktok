@@ -3,7 +3,7 @@
     border-top: 1px solid rgb(129, 158, 174) ;
     height: 60px;
     padding: 0px 24px 0px 16px;
-    width: 1280px;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -45,16 +45,6 @@
     margin-top: 10px;
     display: flex;
 }
-.logIn{
-    background-color:rgb(254, 44, 85);
-    color: white;
-    width: 100px;
-    height: 36px;
-    border-radius: 5px;
-    font-size: 17px;    
-    border: none;
-    cursor: pointer;
-}
 .iconSearch{
     width: 30px;
     height: 23px;
@@ -68,11 +58,4 @@
     cursor: pointer;
     font-size: 15px;
     cursor: pointer;
-}
-.contentLogIn{
-    text-align: center;
-}
-.selects{
-    height:400px ;
-    overflow-y: auto;
 }
