@@ -2,32 +2,15 @@ import { useState } from "react"
 import { Modal,Button } from 'antd';
 import clsx from "clsx";
 import Styles from './buttonlogin.module.scss'
-import { useNavigate } from "react-router-dom";
 import Select from "./loginSelect/Select";
 import ContinuteNumber from "./loginSelect/ContinuteNumber/ContinuteNumber";
+import SignUp from "./formSignUp/SignUp";
 function ButtonLogIn(){
     const [isModelOpen,setIsModelOpen]=useState(false)
     const [isOpenLogIn,setIsOpenLogIn]=useState(false)
     const [account,setaccount]=useState({name:'',password:''})
     const [confilmAccount,setConfilmAccount]=useState(true)
-    const navigate=useNavigate()
-    const HandleSubmit=(event)=>{
-      event.preventDefault();
-      const APIUSer="http://localhost:8000/user"
-      fetch(APIUSer)
-       .then((response=>{return response.json()}))
-       .then(users=>{
-        setConfilmAccount(true)
-        const confilm=users.some(user=>{return user.name===account.name&&user.password===account.password})
-       if(!confilm)
-       {
-        setConfilmAccount(false)
-       }else{
-         navigate('/profile')
-       }
-      })
-      .catch(err=>{console.log(err)})
-    }
+    const [isLogIn,setIsLogIn]=useState(true)
     return(
      <div>
           <div>
@@ -49,42 +32,41 @@ function ButtonLogIn(){
             open={isOpenLogIn}
             footer={null}>
               
-           <ContinuteNumber 
+          {isLogIn? <ContinuteNumber 
            account={account}
            setaccount={setaccount}
            confilmAccount={confilmAccount}
            setConfilmAccount={setConfilmAccount}
-           HandleSubmit={HandleSubmit}/>
+           setIsLogIn={setIsLogIn}/>:<SignUp setIsLogIn={setIsLogIn}/>}
         
           </Modal>
-
+          
        <Select
          onclick={()=>setIsOpenLogIn(true)}
          url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
          content='UsePhone/Email/Username'
        />
-
-       <Select
+            <Select
+         onclick={()=>setIsOpenLogIn(true)}
          url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
          content='UsePhone/Email/Username'
-       /><Select
-        url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-        content='UsePhone/Email/Username'
-      />
-         <Select
-        url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-        content='UsePhone/Email/Username'
-      />  <Select
-       url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-       content='UsePhone/Email/Username'
-     />
-       <Select
+       />       <Select
+         onclick={()=>setIsOpenLogIn(true)}
          url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
          content='UsePhone/Email/Username'
-       />  <Select
-        url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-        content='UsePhone/Email/Username'
-      />
+       />       <Select
+         onclick={()=>setIsOpenLogIn(true)}
+         url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+         content='UsePhone/Email/Username'
+       />       <Select
+         onclick={()=>setIsOpenLogIn(true)}
+         url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+         content='UsePhone/Email/Username'
+       />       <Select
+         onclick={()=>setIsOpenLogIn(true)}
+         url="https://th.bing.com/th/id/OIP.wsWs8WcLQEFtdN_yZ5uQvwHaGc?w=186&h=162&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+         content='UsePhone/Email/Username'
+       />
       </div>
       <footer>
         <p>

@@ -1,8 +1,28 @@
 import clsx from "clsx";
 import Styles from './continuteNumber.module.scss'
 import { Button } from "antd";
-function ContinuteNumber({HandleSubmit,account,setaccount,setConfilmAccount,confilmAccount}) {
-    return ( 
+import { useNavigate } from "react-router-dom";
+
+function ContinuteNumber({account,setaccount,setConfilmAccount,confilmAccount,setIsLogIn}) {
+  const navigate=useNavigate()
+    const HandleSubmit=(event)=>{
+      event.preventDefault();
+      const APIUSer="http://localhost:8000/user"
+      fetch(APIUSer)
+       .then((response=>{return response.json()}))
+       .then(users=>{
+        setConfilmAccount(true)
+        const confilm=users.some(user=>{return user.name===account.name&&user.password===account.password})
+       if(!confilm)
+       {
+        setConfilmAccount(false)
+       }else{
+         navigate('/profile')
+       }
+      })
+      .catch(err=>{console.log(err)})
+    }  
+  return ( 
           <form onSubmit={HandleSubmit}>
             <div className={clsx(Styles.containerLogin)}>
               <h1>LogIn</h1>
@@ -37,7 +57,7 @@ function ContinuteNumber({HandleSubmit,account,setaccount,setConfilmAccount,conf
             <div className={clsx(Styles.footer)}>
               <hr/>
               <p>Don’t have an account?
-                   Sign up</p></div>
+                  <u style={{color:'red',cursor:'pointer'}} onClick={()=>{setIsLogIn(false)}} > Sign up</u></p></div>
             </form>)
 }
 
