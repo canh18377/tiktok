@@ -6,12 +6,11 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { useState,useContext } from 'react';
 import ButtonLogIn from './buttonLogin/ButtonLogIn';
-import { ValueSearchContext } from '../../DefaultLayout';
+import { SharedData } from '../../DefaultLayout';
 function Header() {
     const [backGroundColor, setBackGroundColor]= useState(false)
     const navigate =useNavigate()
-    const {contentSearch,setContentSearch,history,setHistory}= useContext(ValueSearchContext);
-
+    const {isLoged,setIsLoged,isModelOpen,setIsModelOpen,contentSearch,setContentSearch,history,setHistory}= useContext(SharedData);
     const handleNavigate=()=>{
         navigate('/')
     }
@@ -56,7 +55,11 @@ function Header() {
             </div>
             </Tippy>
             <div className={clsx(Styles.sideAction)}>
-                 <ButtonLogIn/>         
+                 <ButtonLogIn
+                 isLoged={isLoged}
+                 setIsLoged={setIsLoged}
+                 isModelOpen={isModelOpen}
+                 setIsModelOpen={setIsModelOpen}/>         
              
                 <Tippy
                 interactive= {true}

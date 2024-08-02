@@ -3,16 +3,23 @@ import SideBar from "./SideBar";
 import Styles from './defaultLayout.module.scss'
 import clsx from "clsx";
 import { useState,createContext } from "react";
-const ValueSearchContext=createContext()
+const   SharedData=createContext()
 function DefaultLayout({children}) {
   const [contentSearch,setContentSearch]=useState('')
   const [history,setHistory]=useState([])
+   const [isModelOpen,setIsModelOpen]=useState(false)
+   const [isLoged,setIsLoged]=useState(false)
+
     return (  
-      <ValueSearchContext.Provider value={{
+      <SharedData.Provider value={{
         contentSearch,
         setContentSearch,
         history,
-        setHistory
+        setHistory,
+        setIsModelOpen,
+        isModelOpen,
+        isLoged,
+        setIsLoged,
 
     }}>
               <div className={clsx(Styles.DefaultLayout)}>
@@ -24,9 +31,9 @@ function DefaultLayout({children}) {
              </div>
          </div>
       </div>
-      </ValueSearchContext.Provider>
+      </SharedData.Provider>
     );
 }
 
 export default DefaultLayout;
-export {ValueSearchContext}
+export {SharedData}

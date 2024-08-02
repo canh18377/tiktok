@@ -7,8 +7,7 @@ const publicRoutes =[
     {path:'/',component:Home},
     {path:'/following',component:Following},
     {path:'/uploat',component:Uploat, layout:OnlyHeader},
-    {path:'/profile',component:Profile, layout:null}
-
+    {path:'/profile',component:Profile}
 
 
 ]

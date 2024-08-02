@@ -2,14 +2,16 @@ import Styles from '../video.module.scss'
 import clsx from 'clsx';
 import {useState ,useContext} from 'react';
 import VideoHome from '../video/VideoHome';
-import { ValueSearchContext } from '../../Layout/DefaultLayout';
+import { SharedData } from '../../Layout/DefaultLayout';
 import { HeartOutlined } from '@ant-design/icons';
 function Home() {
   const[selected,setSelected]=useState([])
     const [videos,setVideos]= useState([])
-    const {history,contentSearch} = useContext(ValueSearchContext)
-   const handleClickTym=(id)=>{
-    setSelected(prev=>{
+    const {history,contentSearch,isLoged,setIsModelOpen} = useContext(SharedData)
+    const handleClickTym=(id)=>{
+    if(isLoged)
+    {
+          setSelected(prev=>{
       if(prev.includes(id))
       {
           return prev.filter((value)=>{
@@ -18,6 +20,11 @@ function Home() {
       }
       else return [...prev,id]
     })
+    }
+    else{
+      setIsModelOpen(true)
+    }
+
   }
     return ( 
     <div className={clsx(Styles.changeContent)}>

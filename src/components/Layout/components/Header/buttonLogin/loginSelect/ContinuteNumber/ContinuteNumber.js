@@ -1,10 +1,7 @@
 import clsx from "clsx";
 import Styles from './continuteNumber.module.scss'
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
-
-function ContinuteNumber({account,setaccount,setConfilmAccount,confilmAccount,setIsLogIn}) {
-  const navigate=useNavigate()
+function ContinuteNumber({account,setaccount,setConfilmAccount,confilmAccount,setIsLogIn,setIsLoged,handleCloseModal}) {
     const HandleSubmit=(event)=>{
       event.preventDefault();
       const APIUSer="http://localhost:8000/user"
@@ -17,7 +14,8 @@ function ContinuteNumber({account,setaccount,setConfilmAccount,confilmAccount,se
        {
         setConfilmAccount(false)
        }else{
-         navigate('/profile')
+        setIsLoged(true)
+        handleCloseModal()
        }
       })
       .catch(err=>{console.log(err)})
